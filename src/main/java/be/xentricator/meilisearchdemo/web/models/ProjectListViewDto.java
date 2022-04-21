@@ -1,4 +1,4 @@
-package be.xentricator.mielisearchdemo.web.models;
+package be.xentricator.meilisearchdemo.web.models;
 
 import lombok.Builder;
 import lombok.Data;

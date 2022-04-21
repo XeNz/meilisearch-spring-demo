@@ -1,10 +1,10 @@
-package be.xentricator.mielisearchdemo;
+package be.xentricator.meilisearchdemo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MielisearchDemoApplicationTests {
+class meilisearchDemoApplicationTests {
 
 	@Test
 	void contextLoads() {

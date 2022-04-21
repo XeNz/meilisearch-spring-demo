@@ -1,7 +1,7 @@
-package be.xentricator.mielisearchdemo.jobs;
+package be.xentricator.meilisearchdemo.jobs;
 
-import be.xentricator.mielisearchdemo.jobs.models.SyncDto;
-import be.xentricator.mielisearchdemo.web.models.ProjectListViewDto;
+import be.xentricator.meilisearchdemo.jobs.models.SyncDto;
+import be.xentricator.meilisearchdemo.web.models.ProjectListViewDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.meilisearch.sdk.Client;
@@ -22,14 +22,14 @@ public class SyncSearchIndexableEntityJob implements InitializingBean, Disposabl
 
     private EntityManager entityManager;
 
-    private final Client mieliClient;
+    private final Client meiliClient;
     private final EntityManagerFactory entityManagerFactory;
     private final ObjectMapper objectMapper;
 
-    public SyncSearchIndexableEntityJob(Client mieliClient,
+    public SyncSearchIndexableEntityJob(Client meiliClient,
                                         EntityManagerFactory entityManagerFactory,
                                         ObjectMapper objectMapper) {
-        this.mieliClient = mieliClient;
+        this.meiliClient = meiliClient;
         this.entityManagerFactory = entityManagerFactory;
         this.objectMapper = objectMapper;
     }
@@ -69,7 +69,7 @@ public class SyncSearchIndexableEntityJob implements InitializingBean, Disposabl
 //                .where(qProject.id.eq(syncDto.getEntityId()));
 //
 //        ProjectListViewDto projectListViewDto = query.fetchOne();
-        TypedQuery<ProjectListViewDto> q = entityManager.createQuery("SELECT new be.xentricator.mielisearchdemo.web.models.ProjectListViewDto(p.id, p.title, c.id, c.firstName, c.lastName, c.email) FROM Project p inner join Contact c on (p.contact.id=c.id) where p.id = ?1",
+        TypedQuery<ProjectListViewDto> q = entityManager.createQuery("SELECT new be.xentricator.meilisearchdemo.web.models.ProjectListViewDto(p.id, p.title, c.id, c.firstName, c.lastName, c.email) FROM Project p inner join Contact c on (p.contact.id=c.id) where p.id = ?1",
                 ProjectListViewDto.class);
         q.setParameter(1, syncDto.getEntityId());
         ProjectListViewDto projectListViewDto = q.getSingleResult();
@@ -77,7 +77,7 @@ public class SyncSearchIndexableEntityJob implements InitializingBean, Disposabl
     }
 
     private Index getIndex(String name) throws Exception {
-        return mieliClient.index(name);
+        return meiliClient.index(name);
     }
 
 

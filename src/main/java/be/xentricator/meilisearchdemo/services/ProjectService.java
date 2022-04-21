@@ -1,11 +1,11 @@
-package be.xentricator.mielisearchdemo.services;
+package be.xentricator.meilisearchdemo.services;
 
-import be.xentricator.mielisearchdemo.dal.Contact;
-import be.xentricator.mielisearchdemo.dal.Project;
-import be.xentricator.mielisearchdemo.dal.ProjectRepository;
-import be.xentricator.mielisearchdemo.web.models.ContactDto;
-import be.xentricator.mielisearchdemo.web.models.ProjectDto;
-import be.xentricator.mielisearchdemo.web.models.ProjectListViewDto;
+import be.xentricator.meilisearchdemo.dal.Contact;
+import be.xentricator.meilisearchdemo.dal.Project;
+import be.xentricator.meilisearchdemo.dal.ProjectRepository;
+import be.xentricator.meilisearchdemo.web.models.ContactDto;
+import be.xentricator.meilisearchdemo.web.models.ProjectDto;
+import be.xentricator.meilisearchdemo.web.models.ProjectListViewDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.meilisearch.sdk.Client;
 import com.meilisearch.sdk.Index;
@@ -19,7 +19,7 @@ import java.util.List;
 public class ProjectService {
 
     private final ProjectRepository projectRepository;
-    private final Client mieliClient;
+    private final Client meiliClient;
     private final ObjectMapper objectMapper;
 
     public ProjectDto createProject(ProjectDto projectDto) {
@@ -57,7 +57,7 @@ public class ProjectService {
     }
 
     public List<ProjectListViewDto> list() throws Exception {
-        Index index = mieliClient.getIndex(ProjectListViewDto.class.getSimpleName());
+        Index index = meiliClient.getIndex(ProjectListViewDto.class.getSimpleName());
         String documents = index.getDocuments();
         return objectMapper.readValue(documents, objectMapper.getTypeFactory().constructCollectionType(List.class, ProjectListViewDto.class));
     }

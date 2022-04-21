@@ -1,9 +1,9 @@
-package be.xentricator.mielisearchdemo.listeners;
+package be.xentricator.meilisearchdemo.listeners;
 
-import be.xentricator.mielisearchdemo.dal.interfaces.SearchEngineIndexableEntity;
-import be.xentricator.mielisearchdemo.jobs.SyncSearchIndexableEntityJob;
-import be.xentricator.mielisearchdemo.jobs.models.SyncDto;
-import be.xentricator.mielisearchdemo.jobs.models.SyncOperation;
+import be.xentricator.meilisearchdemo.dal.interfaces.SearchEngineIndexableEntity;
+import be.xentricator.meilisearchdemo.jobs.SyncSearchIndexableEntityJob;
+import be.xentricator.meilisearchdemo.jobs.models.SyncDto;
+import be.xentricator.meilisearchdemo.jobs.models.SyncOperation;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

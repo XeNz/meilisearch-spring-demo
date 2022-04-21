@@ -1,4 +1,4 @@
-package be.xentricator.mielisearchdemo.jobs.models;
+package be.xentricator.meilisearchdemo.jobs.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

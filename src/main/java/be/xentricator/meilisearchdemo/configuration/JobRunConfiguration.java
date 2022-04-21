@@ -1,4 +1,4 @@
-package be.xentricator.mielisearchdemo.configuration;
+package be.xentricator.meilisearchdemo.configuration;
 
 import org.jobrunr.configuration.JobRunr;
 import org.jobrunr.scheduling.JobScheduler;

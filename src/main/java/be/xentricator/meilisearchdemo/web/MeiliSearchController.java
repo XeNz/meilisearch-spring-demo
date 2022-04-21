@@ -1,8 +1,8 @@
-package be.xentricator.mielisearchdemo.web;
+package be.xentricator.meilisearchdemo.web;
 
-import be.xentricator.mielisearchdemo.services.ProjectService;
-import be.xentricator.mielisearchdemo.web.models.ProjectDto;
-import be.xentricator.mielisearchdemo.web.models.ProjectListViewDto;
+import be.xentricator.meilisearchdemo.services.ProjectService;
+import be.xentricator.meilisearchdemo.web.models.ProjectDto;
+import be.xentricator.meilisearchdemo.web.models.ProjectListViewDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api")
-public class MieliSearchController {
+public class MeiliSearchController {
 
     private final ProjectService projectService;
 

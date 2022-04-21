@@ -1,4 +1,4 @@
-package be.xentricator.mielisearchdemo.dal.interfaces;
+package be.xentricator.meilisearchdemo.dal.interfaces;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

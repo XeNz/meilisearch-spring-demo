@@ -1,4 +1,4 @@
-package be.xentricator.mielisearchdemo.dal;
+package be.xentricator.meilisearchdemo.dal;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

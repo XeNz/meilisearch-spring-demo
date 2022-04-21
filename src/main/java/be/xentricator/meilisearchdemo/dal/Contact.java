@@ -1,6 +1,6 @@
-package be.xentricator.mielisearchdemo.dal;
+package be.xentricator.meilisearchdemo.dal;
 
-import be.xentricator.mielisearchdemo.dal.interfaces.SearchEngineIndexableEntity;
+import be.xentricator.meilisearchdemo.dal.interfaces.SearchEngineIndexableEntity;
 import lombok.*;
 
 import javax.persistence.*;

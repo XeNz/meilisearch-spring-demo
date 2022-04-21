@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>be.xentricator</groupId>
-    <artifactId>mielisearch-demo</artifactId>
+    <artifactId>meilisearch-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>mielisearch-demo</name>
-    <description>Try out mielisearch</description>
+    <name>meilisearch-demo</name>
+    <description>Try out meilisearch</description>
     <properties>
         <java.version>11</java.version>
     </properties>

@@ -1,4 +1,4 @@
-package be.xentricator.mielisearchdemo.configuration;
+package be.xentricator.meilisearchdemo.configuration;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;

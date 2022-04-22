@@ -2,6 +2,7 @@ package be.xentricator.meilisearchdemo.configuration;
 
 import org.jobrunr.configuration.JobRunr;
 import org.jobrunr.scheduling.JobScheduler;
+import org.jobrunr.server.BackgroundJobServerConfiguration;
 import org.jobrunr.server.JobActivator;
 import org.jobrunr.storage.sql.common.SqlStorageProviderFactory;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +18,7 @@ public class JobRunrConfiguration {
                 .useJobActivator(jobActivator)
                 .useStorageProvider(SqlStorageProviderFactory
                         .using(dataSource))
-                .useBackgroundJobServer()
+                .useBackgroundJobServer(BackgroundJobServerConfiguration.usingStandardBackgroundJobServerConfiguration().andPollIntervalInSeconds(5))
                 .useDashboard()
                 .initialize()
                 .getJobScheduler();

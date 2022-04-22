@@ -9,9 +9,14 @@ import be.xentricator.meilisearchdemo.web.models.ProjectListViewDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.meilisearch.sdk.Client;
 import com.meilisearch.sdk.Index;
+import com.meilisearch.sdk.SearchRequest;
+import com.meilisearch.sdk.model.SearchResult;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -56,9 +61,28 @@ public class ProjectService {
                 .build();
     }
 
-    public List<ProjectListViewDto> list() throws Exception {
+    public List<ProjectListViewDto> list(Pageable pageable) throws Exception {
+        int offset = calculateOffset(pageable);
         Index index = meiliClient.getIndex(ProjectListViewDto.class.getSimpleName());
-        String documents = index.getDocuments();
+
+        String documents = index.getDocuments(pageable.getPageSize(), offset);
         return objectMapper.readValue(documents, objectMapper.getTypeFactory().constructCollectionType(List.class, ProjectListViewDto.class));
+    }
+
+    public List<ProjectListViewDto> search(Pageable pageable, String searchTerm) throws Exception {
+        int offset = calculateOffset(pageable);
+        Index index = meiliClient.getIndex(ProjectListViewDto.class.getSimpleName());
+
+        SearchResult result = index.search(new SearchRequest(searchTerm, offset, pageable.getPageSize()));
+        ArrayList<HashMap<String, Object>> hits = result.getHits();
+
+        return objectMapper.convertValue(hits, objectMapper.getTypeFactory().constructCollectionType(List.class, ProjectListViewDto.class));
+    }
+
+    private int calculateOffset(Pageable pageable) {
+        if (pageable.getPageNumber() == 0) {
+            return 0;
+        }
+        return pageable.getPageNumber() * pageable.getPageSize();
     }
 }

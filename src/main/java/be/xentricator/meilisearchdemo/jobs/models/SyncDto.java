@@ -15,4 +15,14 @@ public class SyncDto implements Serializable {
     private SyncOperation syncOperation;
     private Long entityId;
     private String entityClassName;
+
+    @Override
+    public String toString() {
+        return "SyncDto{" +
+                "syncIdentifier=" + syncIdentifier +
+                ", syncOperation=" + syncOperation +
+                ", entityId=" + entityId +
+                ", entityClassName='" + entityClassName + '\'' +
+                '}';
+    }
 }

@@ -1,5 +1,5 @@
 # meilisearch-demo
-
+Trying out [MeiliSearch](https://www.meilisearch.com/), a lightweight open-source search engine, paired with a client written in Java (Spring Boot).
 # Setup
 
 - run `docker-compose up meilisearch` to spin up Meilisearch instance
